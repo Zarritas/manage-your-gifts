@@ -1,53 +1,38 @@
-# 🐞 Descripción del Bug
-
-(Describe de manera clara y concisa el problema. ¿Qué sucede y qué debería suceder?)
+---
+name: Bug report
+about: Create a report to help us improve
+title: ''
+labels: ''
+assignees: ''
 
 ---
 
-## 🔍 Pasos para Reproducir el Bug
+**Describe the bug**
+A clear and concise description of what the bug is.
 
-(Indica los pasos exactos para reproducir el problema. Esto ayuda al equipo a identificar el error más rápidamente.)
+**To Reproduce**
+Steps to reproduce the behavior:
+1. Go to '...'
+2. Click on '....'
+3. Scroll down to '....'
+4. See error
 
-1. (Paso 1)
-2. (Paso 2)
-3. (Paso 3)
-4. ...
+**Expected behavior**
+A clear and concise description of what you expected to happen.
 
-**Resultado Actual:** (Explica lo que sucede al final de los pasos.)
-**Resultado Esperado:** (Explica lo que debería suceder al final de los pasos.)
+**Screenshots**
+If applicable, add screenshots to help explain your problem.
 
----
+**Desktop (please complete the following information):**
+ - OS: [e.g. iOS]
+ - Browser [e.g. chrome, safari]
+ - Version [e.g. 22]
 
-## 🖼️ Capturas de Pantalla o Logs (Opcional)
+**Smartphone (please complete the following information):**
+ - Device: [e.g. iPhone6]
+ - OS: [e.g. iOS8.1]
+ - Browser [e.g. stock browser, safari]
+ - Version [e.g. 22]
 
-(Si es posible, incluye capturas de pantalla, videos o logs relevantes que muestren el problema.)
-
----
-
-## 🌍 Entorno
-
-(Proporciona información sobre el entorno en el que se produjo el error. Esto puede ayudar a reproducirlo.)
-
-- **Sistema Operativo:** (e.g., Windows 10, macOS Ventura, Ubuntu 22.04)
-- **Navegador/Versión:** (e.g., Chrome 119, Firefox 118)
-- **Versión del Proyecto:** (e.g., v1.0.0)
-- **Entorno de Desarrollo o Producción:** (e.g., Local, Staging, Producción)
-
----
-
-## 💡 Posible Solución (Opcional)
-
-(Si tienes una idea de cómo solucionar el problema, inclúyela aquí. Si no, deja esta sección en blanco.)
-
----
-
-## 📜 Tareas Relacionadas
-
-(Si hay issues, PRs o documentos relacionados con este bug, enlázalos aquí.)
-- Relacionado con: # (Número de issue o PR)
-
----
-
-## 📝 Notas Adicionales
-
-(Incluye cualquier otra información relevante que pueda ayudar al equipo a entender el problema.)
+**Additional context**
+Add any other context about the problem here.
