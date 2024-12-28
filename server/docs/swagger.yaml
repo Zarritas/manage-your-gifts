@@ -1,0 +1,423 @@
+openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Documentación de la API
+
+servers:
+  - url: http://localhost:3000/api
+    description: Development server
+
+paths:
+  # Users
+  /users:
+    get:
+      tags:
+        - Users
+      summary: Get all users
+      responses:
+        200:
+          description: List of users
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Users'
+    post:
+      tags:
+          - Users
+      summary: Create a new user
+      description: Create a new user
+      optionalId: addUser
+      requestBody:
+        description: Create new user 
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Users'
+        required: true
+      responses:
+        200:
+          description: Operation successful
+        201:
+          description: User created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Users'
+        400:
+          description: Bad request
+        422:
+          description: Unprocessable entity
+  /users/{id}:
+    get:
+      summary: Get a user by ID
+      tags:
+        - Users
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: ID of the user
+          schema:
+            type: string
+      responses:
+        200:
+          description: User found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Users'
+    put:
+      summary: Update a user by ID
+      tags:
+        - Users
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: ID of the user
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Users'
+      responses:
+        200:
+          description: User updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Users'
+    delete:
+      summary: Delete a user by ID
+      tags:
+        - Users
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: ID of the user
+          schema:
+            type: string
+      responses:
+        204:
+          description: User deleted
+  # Lists
+  /lists:
+    get:
+      summary: Get all lists of a user
+      tags:
+        - Lists
+      responses:
+        200:
+          description: List of lists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lists'
+    post:
+      summary: Create a new list
+      tags:
+        - Lists
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lists'
+      responses:
+        201:
+          description: List created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lists'
+  /lists/{listId}:
+    get:
+      summary: Get a list by ID
+      tags:
+        - Lists
+      parameters:
+        - in: path
+          name: listId
+          required: true
+          description: ID of the list
+          schema:
+            type: string
+      responses:
+        200:
+          description: List found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lists'
+    put:
+      summary: Update a list by ID
+      tags:
+        - Lists
+      parameters:
+        - in: path
+          name: listId
+          required: true
+          description: ID of the list
+          schema:
+            type: string
+      requestBody:
+        required: true  
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lists'
+      responses:
+        200:
+          description: List updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lists'
+    delete:
+      summary: Delete a list by ID
+      tags:
+        - Lists
+      parameters:
+        - in: path
+          name: listId
+          required: true
+          description: ID of the list
+          schema:
+            type: string
+      responses:
+        204:
+          description: List deleted
+  # List Types
+  /listTypes:
+    get:
+      summary: Get all list types
+      tags:
+        - List Types
+      responses:
+        200:
+          description: List of list types
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListTypes'
+    post:
+      summary: Create a new list type
+      tags:
+        - List Types
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListTypes'
+      responses:
+        201:
+          description: List type created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListTypes'
+  /listTypes/{listTypeId}:
+    get:
+      summary: Get a list type by ID
+      tags:
+        - List Types
+      parameters:
+        - in: path
+          name: listTypeId
+          required: true
+          description: ID of the list type
+          schema:
+            type: string
+      responses:
+        200:
+          description: List type found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListTypes'
+    put:
+      summary: Update a list type by ID
+      tags:
+        - List Types
+      parameters:
+        - in: path
+          name: listTypeId
+          required: true
+          description: ID of the list type
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListTypes'
+      responses:
+        200:
+          description: List type updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListTypes'
+    delete:
+      summary: Delete a list type by ID
+      tags:
+        - List Types
+      parameters:
+        - in: path
+          name: listTypeId
+          required: true
+          description: ID of the list type
+          schema:
+            type: string
+      responses:
+        204:
+          description: List type deleted
+  # Gifts
+  /gifts:
+    get:
+      summary: Get all gifts
+      tags:
+        - Gifts
+      responses:
+        200:
+          description: List of gifts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gifts'
+    post:
+      summary: Create a new gift
+      tags:
+        - Gifts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Gifts'
+      responses:
+        201:
+          description: Gift created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gifts'
+  /gifts/{giftId}:
+    get:
+      summary: Get a gift by ID
+      tags:
+        - Gifts
+      parameters:
+        - in: path
+          name: giftId
+          required: true
+          description: ID of the gift
+          schema:
+            type: string
+      responses:
+        200:
+          description: Gift found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gifts'
+    put:  
+      summary: Update a gift by ID
+      tags:
+        - Gifts
+      parameters:
+        - in: path
+          name: giftId
+          required: true
+          description: ID of the gift
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Gifts'
+      responses:
+        200:
+          description: Gift updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gifts'
+    delete:
+      summary: Delete a gift by ID
+      tags:
+        - Gifts
+      parameters:
+        - in: path
+          name: giftId
+          required: true
+          description: ID of the gift
+          schema:
+            type: string
+      responses:
+        204:
+          description: Gift deleted
+
+components:
+  schemas:
+    # Users
+    Users:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        id:
+          type: UUID
+          example: 00000000-0000-0000-0000-000000000000
+          description: Unique identifier of the user
+        email:
+          type: string
+          example: 2VXp0@example.com
+          description: The email of the user
+        password:
+          type: string
+          example: password
+          description: The password of the user
+    # Lists
+    Lists:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the list
+        name:
+          type: string
+          description: The name of the list
+    # Gifts
+    Gifts:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the gift
+        title:
+          type: string
+          description: The title of the gift
+        description:
+          type: string
+          description: The description of the gift
+    # List Types
+    ListTypes:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the list type
+        name:
+          type: string
+          description: The name of the list type
