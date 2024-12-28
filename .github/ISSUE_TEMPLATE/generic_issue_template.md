@@ -1,6 +1,6 @@
 ---
 name: Generic Issue
-about: Create a report to help us improve
+about: Create a generic issue
 title: ''
 labels: ''
 assignees: ''
