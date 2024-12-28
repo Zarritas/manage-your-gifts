@@ -244,7 +244,8 @@ __generated__
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -348,12 +349,7 @@ gradle-app.setting
 # .nfs files are created when an open file is removed but is still being accessed
 
 ### VisualStudioCode ###
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
+.vscode/
 
 # Local History for Visual Studio Code
 .history/
