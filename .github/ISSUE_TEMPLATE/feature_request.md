@@ -1,3 +1,10 @@
+---
+name: Fearute
+about: Create a feature issue
+title: ''
+labels: ''
+assignees: ''
+---
 # ✨ Descripción de la Feature
 
 (Describe claramente la nueva funcionalidad o mejora que estás solicitando. Explica qué problema resuelve o qué valor aporta al proyecto.)

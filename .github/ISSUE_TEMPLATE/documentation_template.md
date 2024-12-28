@@ -1,3 +1,10 @@
+---
+name: Documentation
+about: Create a documentation issue to improve our project
+title: ''
+labels: ''
+assignees: ''
+---
 # 📚 Descripción de la Mejora
 
 (Explica qué parte de la documentación debe mejorar y cómo.)

@@ -1,3 +1,10 @@
+---
+name: New Library
+about: Recommend a new library
+title: ''
+labels: ''
+assignees: ''
+---
 # 📦 Nueva Librería / Recurso Externo
 
 (Explica qué nueva librería o recurso externo estás proponiendo integrar y por qué.)

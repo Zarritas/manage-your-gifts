@@ -1,3 +1,10 @@
+---
+name: Pull request
+about: Create a pull request
+title: ''
+labels: ''
+assignees: ''
+---
 # 📑 Descripción del PR
 
 (Explica brevemente qué hace este PR. ¿Qué problema resuelve o qué funcionalidad añade?)

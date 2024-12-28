@@ -1,3 +1,10 @@
+---
+name: Feedback
+about: Create a feedback
+title: ''
+labels: ''
+assignees: ''
+---
 # 📝 Descripción del Feedback
 
 (Especifica qué aspecto del proyecto deseas recibir comentarios o sugerencias.)

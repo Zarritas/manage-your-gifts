@@ -1,3 +1,10 @@
+---
+name: Generic Issue
+about: Create a generic issue
+title: ''
+labels: ''
+assignees: ''
+---
 # 🚀 Resumen
 
 (Describe brevemente el problema o la sugerencia de mejora. Sé claro y conciso.)
