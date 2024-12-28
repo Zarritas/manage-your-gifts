@@ -1,3 +1,10 @@
+---
+name: Task
+about: Create a new Task
+title: ''
+labels: ''
+assignees: ''
+---
 # ✅ Descripción de la Tarea
 
 (Explica brevemente lo que debe hacerse en esta tarea. ¿Qué debe lograrse?)
