@@ -1,6 +1,6 @@
 ---
-name: Bug report
-about: Create a report to help us improve
+name: Fearute
+about: Create a feature issue
 title: ''
 labels: ''
 assignees: ''
