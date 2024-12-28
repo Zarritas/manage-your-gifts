@@ -1,3 +1,10 @@
+---
+name: Bug report
+about: Create a report to help us improve
+title: ''
+labels: ''
+assignees: ''
+---
 # ✨ Descripción de la Feature
 
 (Describe claramente la nueva funcionalidad o mejora que estás solicitando. Explica qué problema resuelve o qué valor aporta al proyecto.)
