@@ -1,3 +1,10 @@
+---
+name: Bug report
+about: Create a report to help us improve
+title: ''
+labels: ''
+assignees: ''
+---
 # 📝 Descripción del Feedback
 
 (Especifica qué aspecto del proyecto deseas recibir comentarios o sugerencias.)
