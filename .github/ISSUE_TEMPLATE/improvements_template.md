@@ -1,3 +1,10 @@
+---
+name: Improvements
+about: Create an improvement
+title: ''
+labels: ''
+assignees: ''
+---
 # 🔍 Descripción de la Investigación
 
 (Explica la idea o el concepto que se está investigando. ¿Qué problema estás tratando de resolver?)
