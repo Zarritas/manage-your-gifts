@@ -1,3 +1,10 @@
+---
+name: Bug report
+about: Create a report to help us improve
+title: ''
+labels: ''
+assignees: ''
+---
 # 📚 Descripción de la Mejora
 
 (Explica qué parte de la documentación debe mejorar y cómo.)
