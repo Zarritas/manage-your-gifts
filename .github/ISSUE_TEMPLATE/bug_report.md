@@ -5,13 +5,13 @@ title: ''
 labels: ''
 assignees: ''
 ---
-**🐞 Descripción del Bug**
+## 🐞 Descripción del Bug
 
 (Describe de manera clara y concisa el problema. ¿Qué sucede y qué debería suceder?)
 
 ---
 
-**🔍 Pasos para Reproducir el Bug**
+## 🔍 Pasos para Reproducir el Bug
 
 (Indica los pasos exactos para reproducir el problema. Esto ayuda al equipo a identificar el error más rápidamente.)
 
@@ -23,12 +23,12 @@ assignees: ''
 **Resultado Actual:** (Explica lo que sucede al final de los pasos.)
 **Resultado Esperado:** (Explica lo que debería suceder al final de los pasos.)
 
-**🖼️ Capturas de Pantalla o Logs (Opcional)**
+## 🖼️ Capturas de Pantalla o Logs (Opcional)
 
 (Si es posible, incluye capturas de pantalla, videos o logs relevantes que muestren el problema.)
 
 
-**🌍 Entorno**
+## 🌍 Entorno
 
 (Proporciona información sobre el entorno en el que se produjo el error. Esto puede ayudar a reproducirlo.)
 
@@ -38,16 +38,16 @@ assignees: ''
 - **Entorno de Desarrollo o Producción:** (e.g., Local, Staging, Producción)
 
 
-**💡 Posible Solución (Opcional)**
+## 💡 Posible Solución (Opcional)
 
 (Si tienes una idea de cómo solucionar el problema, inclúyela aquí. Si no, deja esta sección en blanco.)
 
 
-**📜 Tareas Relacionadas**
+## 📜 Tareas Relacionadas
 
 (Si hay issues, PRs o documentos relacionados con este bug, enlázalos aquí.)
 - Relacionado con: # (Número de issue o PR)
 
-**📝 Notas Adicionales**
+## 📝 Notas Adicionales
 
 (Incluye cualquier otra información relevante que pueda ayudar al equipo a entender el problema.)
