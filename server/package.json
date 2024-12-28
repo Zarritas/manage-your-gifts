@@ -1,0 +1,64 @@
+{
+  "type": "module",
+  "name": "server-api",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "directories": {
+    "test": "tests",
+    "docs": "docs",
+    "src": "src",
+    "config": "src/config",
+    "controllers": "src/controllers",
+    "middleware": "src/middleware",
+    "models": "src/models",
+    "routes": "src/routes",
+    "services": "src/services",
+    "utils": "src/utils",
+    "validators": "src/validators"
+  },
+  "imports": {
+    "#root/*": "./*",
+    "#docs/*": "./docs/*",
+    "#test/*": "./tests/*",
+    "#src/*": "./src/*",
+    "#components/*": "./src/components/*",
+    "#config/*": "./src/config/*",
+    "#controllers/*": "./src/controllers/*",
+    "#middleware/*": "./src/middleware/*",
+    "#models/*": "./src/models/*",
+    "#routes/*": "./src/routes/*",
+    "#services/*": "./src/services/*",
+    "#utils/*": "./src/utils/*",
+    "#validators/*": "./src/validators/*"
+  },
+  "scripts": {
+    "test": "no test",
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": [],
+  "author": "Jesús Lorenzo",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "16.4.7",
+    "express": "^4.21.2",
+    "express-validator": "^7.2.0",
+    "morgan": "1.10.0",
+    "pg": "^8.13.1",
+    "sequelize": "^6.37.5",
+    "swagger-ui-express": "^5.0.1",
+    "yaml": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.5",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/morgan": "1.9.9",
+    "@types/swagger-ui-express": "^4.1.7",
+    "nodemon": "^3.1.9"
+  }
+}
