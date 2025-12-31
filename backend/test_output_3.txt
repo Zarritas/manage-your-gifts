@@ -1,0 +1,160 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.1, pytest-9.0.2, pluggy-1.6.0
+rootdir: D:\Programing\gitrepos\manage-your-gifts\backend
+configfile: pytest.ini
+plugins: anyio-4.12.0, asyncio-1.3.0
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 1 item
+
+tests\test_websockets.py F                                               [100%]
+
+================================== FAILURES ===================================
+__________________________ test_websocket_broadcast ___________________________
+
+client = <starlette.testclient.TestClient object at 0x00000259C3D03B60>
+db_session = <sqlmodel.ext.asyncio.session.AsyncSession object at 0x00000259C3E76120>
+
+    @pytest.mark.asyncio
+    async def test_websocket_broadcast(client: TestClient, db_session: AsyncSession):
+        """
+        Test authenticating via WebSocket and receiving a broadcast.
+        """
+        # 1. Setup Data directly in DB
+        # Create User
+        user = User(email="ws_test@example.com", language="en")
+        db_session.add(user)
+        await db_session.commit()
+        await db_session.refresh(user)
+    
+        # Create Group
+        group = Group(name="WS Test Group", admin_user_id=user.id, status="active")
+        db_session.add(group)
+        await db_session.commit()
+        await db_session.refresh(group)
+    
+        # Add User to Group as accepted member
+        group_user = GroupUser(
+            group_id=group.id,
+>           user_id=user.id,
+                   ^^^^^^^
+            status="accepted",
+            joined_at=datetime.utcnow()
+        )
+
+tests\test_websockets.py:45: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+venv\Lib\site-packages\sqlalchemy\orm\attributes.py:569: in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\sqlalchemy\orm\attributes.py:1096: in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\sqlalchemy\orm\attributes.py:1126: in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\sqlalchemy\orm\state.py:828: in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+venv\Lib\site-packages\sqlalchemy\orm\loading.py:1674: in load_scalar_attributes
+    result = load_on_ident(
+venv\Lib\site-packages\sqlalchemy\orm\loading.py:510: in load_on_ident
+    return load_on_pk_identity(
+venv\Lib\site-packages\sqlalchemy\orm\loading.py:695: in load_on_pk_identity
+    session.execute(
+venv\Lib\site-packages\sqlmodel\orm\session.py:142: in execute
+    return super().execute(
+venv\Lib\site-packages\sqlalchemy\orm\session.py:2351: in execute
+    return self._execute_internal(
+venv\Lib\site-packages\sqlalchemy\orm\session.py:2249: in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+venv\Lib\site-packages\sqlalchemy\orm\context.py:306: in orm_execute_statement
+    result = conn.execute(
+venv\Lib\site-packages\sqlalchemy\engine\base.py:1419: in execute
+    return meth(
+venv\Lib\site-packages\sqlalchemy\sql\elements.py:527: in _execute_on_connection
+    return connection._execute_clauseelement(
+venv\Lib\site-packages\sqlalchemy\engine\base.py:1641: in _execute_clauseelement
+    ret = self._execute_context(
+venv\Lib\site-packages\sqlalchemy\engine\base.py:1846: in _execute_context
+    return self._exec_single_context(
+venv\Lib\site-packages\sqlalchemy\engine\base.py:1986: in _exec_single_context
+    self._handle_dbapi_exception(
+venv\Lib\site-packages\sqlalchemy\engine\base.py:2366: in _handle_dbapi_exception
+    raise exc_info[1].with_traceback(exc_info[2])
+venv\Lib\site-packages\sqlalchemy\engine\base.py:1967: in _exec_single_context
+    self.dialect.do_execute(
+venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+venv\Lib\site-packages\sqlalchemy\dialects\sqlite\aiosqlite.py:180: in execute
+    self._adapt_connection._handle_exception(error)
+venv\Lib\site-packages\sqlalchemy\dialects\sqlite\aiosqlite.py:340: in _handle_exception
+    raise error
+venv\Lib\site-packages\sqlalchemy\dialects\sqlite\aiosqlite.py:157: in execute
+    _cursor: AsyncIODBAPICursor = self.await_(self._connection.cursor())  # type: ignore[arg-type] # noqa: E501
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+awaitable = <aiosqlite.context.Result object at 0x00000259C3A06DA0>
+
+    def await_only(awaitable: Awaitable[_T]) -> _T:
+        """Awaits an async function in a sync method.
+    
+        The sync method must be inside a :func:`greenlet_spawn` context.
+        :func:`await_only` calls cannot be nested.
+    
+        :param awaitable: The coroutine to call.
+    
+        """
+        # this is called in the context greenlet while running fn
+        current = getcurrent()
+        if not getattr(current, "__sqlalchemy_greenlet_provider__", False):
+            _safe_cancel_awaitable(awaitable)
+    
+>           raise exc.MissingGreenlet(
+                "greenlet_spawn has not been called; can't call await_only() "
+                "here. Was IO attempted in an unexpected place?"
+            )
+E           sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+
+venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py:123: MissingGreenlet
+============================== warnings summary ===============================
+app\config.py:7
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\config.py:7: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class Settings(BaseSettings):
+
+app\schemas\auth.py:32
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\schemas\auth.py:32: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class UserResponse(BaseModel):
+
+app\schemas\groups.py:14
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\schemas\groups.py:14: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class GroupResponse(BaseModel):
+
+app\schemas\groups.py:28
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\schemas\groups.py:28: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class GroupUserResponse(BaseModel):
+
+app\schemas\groups.py:41
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\schemas\groups.py:41: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class GroupDetailResponse(BaseModel):
+
+app\schemas\gifts.py:17
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\schemas\gifts.py:17: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class GiftResponse(BaseModel):
+
+app\schemas\gifts.py:34
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\schemas\gifts.py:34: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class GiftWithReservationResponse(BaseModel):
+
+app\schemas\reservations.py:7
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\schemas\reservations.py:7: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class ReservationResponse(BaseModel):
+
+tests/test_websockets.py::test_websocket_broadcast
+tests/test_websockets.py::test_websocket_broadcast
+  d:\Programing\gitrepos\manage-your-gifts\backend\venv\Lib\site-packages\pydantic\fields.py:747: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    return fac()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_websockets.py::test_websocket_broadcast - sqlalchemy.exc.Mi...
+======================= 1 failed, 10 warnings in 2.52s ========================

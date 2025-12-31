@@ -1,0 +1,108 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.1, pytest-9.0.2, pluggy-1.6.0
+rootdir: D:\Programing\gitrepos\manage-your-gifts\backend
+configfile: pytest.ini
+plugins: anyio-4.12.0, asyncio-1.3.0
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 1 item
+
+tests\test_websockets.py E                                               [100%]
+
+=================================== ERRORS ====================================
+_________________ ERROR at setup of test_websocket_broadcast __________________
+
+self = <Coroutine test_websocket_broadcast>
+
+    def setup(self) -> None:
+        runner_fixture_id = f"_{self._loop_scope}_scoped_runner"
+        if runner_fixture_id not in self.fixturenames:
+            self.fixturenames.append(runner_fixture_id)
+>       return super().setup()
+               ^^^^^^^^^^^^^^^
+
+venv\Lib\site-packages\pytest_asyncio\plugin.py:458: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+venv\Lib\site-packages\pytest_asyncio\plugin.py:730: in pytest_fixture_setup
+    return (yield)
+            ^^^^^
+tests\conftest.py:49: in client
+    with TestClient(app) as c:
+         ^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\testclient.py:688: in __enter__
+    portal.call(self.wait_startup)
+venv\Lib\site-packages\anyio\from_thread.py:326: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python313\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Python313\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+venv\Lib\site-packages\anyio\from_thread.py:257: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\testclient.py:717: in wait_startup
+    message = await receive()
+              ^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\testclient.py:714: in receive
+    self.task.result()
+C:\Python313\Lib\concurrent\futures\_base.py:449: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Python313\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+venv\Lib\site-packages\anyio\from_thread.py:257: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\testclient.py:704: in lifespan
+    await self.app(scope, self.stream_receive.receive, self.stream_send.send)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <starlette.testclient._WrapASGI2 object at 0x000001A7913838C0>
+scope = {'state': {}, 'type': 'lifespan'}
+receive = <bound method StapledObjectStream.receive of StapledObjectStream(send_stream=MemoryObjectSendStream(_state=_MemoryObje...d_channels=0, open_receive_channels=0, waiting_receivers=OrderedDict(), waiting_senders=OrderedDict()), _closed=True))>
+send = <bound method StapledObjectStream.send of StapledObjectStream(send_stream=MemoryObjectSendStream(_state=_MemoryObjectS...d_channels=0, open_receive_channels=0, waiting_receivers=OrderedDict(), waiting_senders=OrderedDict()), _closed=True))>
+
+    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:
+>       instance = self.app(scope)
+                   ^^^^^^^^^^^^^^^
+E       TypeError: 'module' object is not callable
+
+venv\Lib\site-packages\starlette\testclient.py:70: TypeError
+============================== warnings summary ===============================
+app\config.py:7
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\config.py:7: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class Settings(BaseSettings):
+
+app\schemas\auth.py:32
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\schemas\auth.py:32: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class UserResponse(BaseModel):
+
+app\schemas\groups.py:14
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\schemas\groups.py:14: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class GroupResponse(BaseModel):
+
+app\schemas\groups.py:28
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\schemas\groups.py:28: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class GroupUserResponse(BaseModel):
+
+app\schemas\groups.py:41
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\schemas\groups.py:41: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class GroupDetailResponse(BaseModel):
+
+app\schemas\gifts.py:17
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\schemas\gifts.py:17: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class GiftResponse(BaseModel):
+
+app\schemas\gifts.py:34
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\schemas\gifts.py:34: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class GiftWithReservationResponse(BaseModel):
+
+app\schemas\reservations.py:7
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\schemas\reservations.py:7: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class ReservationResponse(BaseModel):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+ERROR tests/test_websockets.py::test_websocket_broadcast - TypeError: 'module...
+======================== 8 warnings, 1 error in 1.87s =========================

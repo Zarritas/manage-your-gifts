@@ -1,0 +1,77 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.1, pytest-9.0.2, pluggy-1.6.0
+rootdir: D:\Programing\gitrepos\manage-your-gifts\backend
+plugins: anyio-4.12.0, asyncio-1.3.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 1 item
+
+tests\test_websockets.py E                                               [100%]
+
+=================================== ERRORS ====================================
+_________________ ERROR at setup of test_websocket_broadcast __________________
+
+self = <Coroutine test_websocket_broadcast>
+
+    def setup(self) -> None:
+        runner_fixture_id = f"_{self._loop_scope}_scoped_runner"
+        if runner_fixture_id not in self.fixturenames:
+            self.fixturenames.append(runner_fixture_id)
+>       return super().setup()
+               ^^^^^^^^^^^^^^^
+
+venv\Lib\site-packages\pytest_asyncio\plugin.py:458: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+fixturedef = <FixtureDef argname='init_db' scope='module' baseid='tests'>
+request = <SubRequest 'init_db' for <Coroutine test_websocket_broadcast>>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+>               return (yield)
+                        ^^^^^
+E               pytest.PytestRemovedIn9Warning: 'test_websockets.py' requested an async fixture 'init_db', with no plugin or hook that handled it. This is usually an error, as pytest does not natively support it. This will turn into an error in pytest 9.
+E               See: https://docs.pytest.org/en/stable/deprecations.html#sync-test-depending-on-async-fixture
+
+venv\Lib\site-packages\pytest_asyncio\plugin.py:728: PytestRemovedIn9Warning
+============================== warnings summary ===============================
+app\config.py:7
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\config.py:7: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class Settings(BaseSettings):
+
+app\schemas\auth.py:32
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\schemas\auth.py:32: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class UserResponse(BaseModel):
+
+app\schemas\groups.py:14
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\schemas\groups.py:14: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class GroupResponse(BaseModel):
+
+app\schemas\groups.py:28
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\schemas\groups.py:28: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class GroupUserResponse(BaseModel):
+
+app\schemas\groups.py:41
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\schemas\groups.py:41: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class GroupDetailResponse(BaseModel):
+
+app\schemas\gifts.py:17
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\schemas\gifts.py:17: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class GiftResponse(BaseModel):
+
+app\schemas\gifts.py:34
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\schemas\gifts.py:34: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class GiftWithReservationResponse(BaseModel):
+
+app\schemas\reservations.py:7
+  D:\Programing\gitrepos\manage-your-gifts\backend\app\schemas\reservations.py:7: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class ReservationResponse(BaseModel):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+ERROR tests/test_websockets.py::test_websocket_broadcast - pytest.PytestRemov...
+======================== 8 warnings, 1 error in 0.29s =========================

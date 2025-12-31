@@ -1,0 +1,90 @@
+{
+    "app": {
+        "name": "Gift Sharing",
+        "tagline": "Share wishlists with friends and family"
+    },
+    "auth": {
+        "login": "Login",
+        "logout": "Logout",
+        "email": "Email address",
+        "emailPlaceholder": "you@example.com",
+        "sendCode": "Send Code",
+        "codeSent": "Code sent! Check your email.",
+        "enterCode": "Enter verification code",
+        "codePlaceholder": "123456",
+        "verifyCode": "Login",
+        "invalidCode": "Invalid or expired code"
+    },
+    "dashboard": {
+        "title": "My Groups",
+        "activeGroups": "Active Groups",
+        "closedGroups": "Closed Groups",
+        "noGroups": "You're not in any groups yet",
+        "createGroup": "Create Group",
+        "members": "members"
+    },
+    "groups": {
+        "create": "Create Group",
+        "name": "Group Name",
+        "namePlaceholder": "Family Christmas",
+        "description": "Description (optional)",
+        "descriptionPlaceholder": "A brief description of this group",
+        "join": "Join Group",
+        "joinRequest": "Request to Join",
+        "requestSent": "Request sent! Waiting for approval.",
+        "pendingRequests": "Pending Requests",
+        "members": "Members",
+        "accept": "Accept",
+        "reject": "Reject",
+        "remove": "Remove",
+        "close": "Close Group",
+        "closed": "Closed",
+        "closedMessage": "This group is closed. No new changes allowed.",
+        "invite": "Invite People",
+        "copyLink": "Copy Link",
+        "linkCopied": "Link copied!"
+    },
+    "gifts": {
+        "title": "Gifts",
+        "addGift": "Add Gift",
+        "giftTitle": "Gift Title",
+        "titlePlaceholder": "What do you want?",
+        "description": "Description",
+        "descriptionPlaceholder": "Details about the gift...",
+        "price": "Price",
+        "pricePlaceholder": "0.00",
+        "link": "Link (optional)",
+        "linkPlaceholder": "https://...",
+        "imageUrl": "Image URL (optional)",
+        "create": "Add to Wishlist",
+        "delete": "Delete",
+        "confirmDelete": "Are you sure you want to delete this gift?",
+        "cannotDelete": "Cannot delete a reserved gift",
+        "free": "Available",
+        "reserved": "Reserved",
+        "purchased": "Purchased",
+        "reserve": "Select Gift",
+        "unreserve": "Unselect",
+        "markPurchased": "Mark as Purchased",
+        "myGift": "Your wish",
+        "searchOn": "Search on"
+    },
+    "settings": {
+        "title": "Settings",
+        "language": "Language",
+        "searchStores": "Search Stores",
+        "addStore": "Add Store",
+        "storeName": "Store Name",
+        "storeUrl": "Search URL (use {query})",
+        "save": "Save",
+        "saved": "Settings saved!"
+    },
+    "common": {
+        "loading": "Loading...",
+        "error": "An error occurred",
+        "cancel": "Cancel",
+        "save": "Save",
+        "back": "Back",
+        "close": "Close"
+    }
+}

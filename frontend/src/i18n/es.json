@@ -1,0 +1,90 @@
+{
+    "app": {
+        "name": "Gift Sharing",
+        "tagline": "Comparte listas de deseos con amigos y familia"
+    },
+    "auth": {
+        "login": "Iniciar sesión",
+        "logout": "Cerrar sesión",
+        "email": "Correo electrónico",
+        "emailPlaceholder": "tu@ejemplo.com",
+        "sendCode": "Enviar código",
+        "codeSent": "¡Código enviado! Revisa tu correo.",
+        "enterCode": "Introduce el código de verificación",
+        "codePlaceholder": "123456",
+        "verifyCode": "Iniciar sesión",
+        "invalidCode": "Código inválido o expirado"
+    },
+    "dashboard": {
+        "title": "Mis Grupos",
+        "activeGroups": "Grupos Activos",
+        "closedGroups": "Grupos Cerrados",
+        "noGroups": "Aún no estás en ningún grupo",
+        "createGroup": "Crear Grupo",
+        "members": "miembros"
+    },
+    "groups": {
+        "create": "Crear Grupo",
+        "name": "Nombre del Grupo",
+        "namePlaceholder": "Navidad en Familia",
+        "description": "Descripción (opcional)",
+        "descriptionPlaceholder": "Una breve descripción del grupo",
+        "join": "Unirse al Grupo",
+        "joinRequest": "Solicitar Unirse",
+        "requestSent": "¡Solicitud enviada! Esperando aprobación.",
+        "pendingRequests": "Solicitudes Pendientes",
+        "members": "Miembros",
+        "accept": "Aceptar",
+        "reject": "Rechazar",
+        "remove": "Eliminar",
+        "close": "Cerrar Grupo",
+        "closed": "Cerrado",
+        "closedMessage": "Este grupo está cerrado. No se permiten más cambios.",
+        "invite": "Invitar Personas",
+        "copyLink": "Copiar Enlace",
+        "linkCopied": "¡Enlace copiado!"
+    },
+    "gifts": {
+        "title": "Regalos",
+        "addGift": "Añadir Regalo",
+        "giftTitle": "Título del Regalo",
+        "titlePlaceholder": "¿Qué deseas?",
+        "description": "Descripción",
+        "descriptionPlaceholder": "Detalles sobre el regalo...",
+        "price": "Precio",
+        "pricePlaceholder": "0.00",
+        "link": "Enlace (opcional)",
+        "linkPlaceholder": "https://...",
+        "imageUrl": "URL de Imagen (opcional)",
+        "create": "Añadir a Lista",
+        "delete": "Eliminar",
+        "confirmDelete": "¿Seguro que quieres eliminar este regalo?",
+        "cannotDelete": "No puedes eliminar un regalo reservado",
+        "free": "Disponible",
+        "reserved": "Reservado",
+        "purchased": "Comprado",
+        "reserve": "Seleccionar Regalo",
+        "unreserve": "Deseleccionar",
+        "markPurchased": "Marcar como Comprado",
+        "myGift": "Tu deseo",
+        "searchOn": "Buscar en"
+    },
+    "settings": {
+        "title": "Configuración",
+        "language": "Idioma",
+        "searchStores": "Tiendas de Búsqueda",
+        "addStore": "Añadir Tienda",
+        "storeName": "Nombre de la Tienda",
+        "storeUrl": "URL de Búsqueda (usa {query})",
+        "save": "Guardar",
+        "saved": "¡Configuración guardada!"
+    },
+    "common": {
+        "loading": "Cargando...",
+        "error": "Ha ocurrido un error",
+        "cancel": "Cancelar",
+        "save": "Guardar",
+        "back": "Volver",
+        "close": "Cerrar"
+    }
+}
