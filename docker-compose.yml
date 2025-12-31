@@ -1,8 +1,6 @@
 services:
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: ghcr.io/${REPO_LOWER}/backend:latest
     restart: always
     volumes:
       - ./data:/app/data
@@ -16,9 +14,7 @@ services:
       - "8000:8000"
 
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    image: ghcr.io/${REPO_LOWER}/frontend:latest
     restart: always
     ports:
       - "80:80"
