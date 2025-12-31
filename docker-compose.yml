@@ -10,6 +10,8 @@ services:
       - RESEND_API_KEY=${RESEND_API_KEY}
       - EMAIL_FROM=${EMAIL_FROM}
       - FRONTEND_URL=${FRONTEND_URL}
+      - HOST=0.0.0.0
+      - PORT=8000
     ports:
       - "8000:8000"
 
