@@ -5,7 +5,7 @@ on:
     branches:
       - main
 
-# 🔑 Permisos necesarios para GHCR
+# Permisos necesarios para GHCR
 permissions:
   contents: read
   packages: write
@@ -21,8 +21,7 @@ jobs:
 
       # 2️⃣ Convertir el nombre del repo a minúsculas
       - name: Lowercase repo name
-        run: |
-          echo "REPO_LOWER=${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
+        run: echo "REPO_LOWER=${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
 
       # 3️⃣ Configurar Docker Buildx
       - name: Set up Docker Buildx
@@ -56,7 +55,17 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      # 7️⃣ Deploy a EC2 usando SSH
+      # 7️⃣ Copiar docker-compose.yml a EC2
+      - name: Copy docker-compose.yml to EC2
+        uses: appleboy/scp-action@v0.1.5
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "docker-compose.yml"
+          target: "~/manage-your-gifts/"
+
+      # 8️⃣ Deploy en EC2 usando docker compose
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -64,7 +73,6 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            # Crear carpeta si no existe
             mkdir -p ~/manage-your-gifts
             cd ~/manage-your-gifts
 
@@ -76,6 +84,6 @@ jobs:
             echo "EMAIL_FROM=${{ secrets.EMAIL_FROM }}" >> .env
             echo "FRONTEND_URL=${{ secrets.FRONTEND_URL }}" >> .env
 
-            # Descargar últimas imágenes y levantar contenedores
+            # Levantar contenedores
             docker compose pull
             docker compose up -d --remove-orphans
